@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Home | MyRestaurant</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+  <script src="{% static 'scripts.js' %}"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <div class="navbar">
+    <div class="logo">
+      <img src="{% static 'logo.jpg' %}" alt="Hanvik Restaurant Logo">
+
+    </div>
+    <div class="nav-links">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'services' %}">services</a>
+      <a href="{% url 'contact' %}">Contact</a>
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="abc">
+    <section id="menu" class="menu">
+      <div class="menu-item" onclick="showMenu('veg-menu')">
+          <img src="https://media.istockphoto.com/id/1223612183/photo/pad-pak-ruam-or-veg-thai-stir-fried-vegetables-in-black-bowl-isolated-on-backdrop-pad-pak-is.jpg?s=612x612&w=0&k=20&c=CmuCJPrB7Fu8KGqlG6c4WIhqiPNpyhnfjZagkzKJCwE=" alt="Veg"> <!-- Replace with your image URL -->
+          <h3>Veg</h3>
+          <p>Delicious vegetarian dishes made with fresh ingredients.</p>
+      </div>
+      <div class="menu-item" onclick="showMenu('nonveg-menu')">
+          <img src="https://img.freepik.com/premium-photo/assorted-indian-non-vegetarian-food-recipe-served-group-includes-chicken-curry-mutton-masala-anda-egg-curry-butter-chicken-biryani-tandoori-murg-chicken-tikka-naa-roti-ramadan_466689-40942.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Non-Veg"> <!-- Replace with your image URL -->
+          <h3>Non-Veg</h3>
+          <p>Delightful non-vegetarian meals with rich flavors.</p>
+      </div>
+    <section id="veg-menu" class="submenu">
+      <div class="submenu-item">
+          <img src="https://img.freepik.com/free-psd/palak-paneer-indian-cuisine-green-curry-cheese-spinach-dish-bowl-food_84443-35134.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Paneer Biryani">
+          <h4>Paneer Biryani</h4>
+      </div>
+      <div class="submenu-item">
+          <img src="https://img.freepik.com/premium-photo/kashmiri-pulao-made-basmati-rice-cooked-with-spices-flavored-with-saffron-dry-fruits_466689-1160.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Mushroom Biryani">
+          <h4>Mushroom Biryani</h4>
+      </div>
+      <div class="submenu-item">
+          <img src="https://img.freepik.com/premium-photo/ai-generative-image-best-traditional-food-asian-country_999340-20287.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Aloo Biryani">
+          <h4>Aloo Biryani</h4>
+      </div>
+      <div class="submenu-item">
+          <img src="https://img.freepik.com/premium-photo/indian-vegetable-pulav-biryani-made-using-basmati-rice-served-terracotta-bowl-selective-focus_466689-55615.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Veg Biryani">
+          <h4>Veg Biryani</h4>
+      </div>
+      
+    </section>
+  
+    <section id="nonveg-menu" class="submenu">
+      <div class="submenu-item">
+          <img src="https://img.freepik.com/free-photo/close-up-appetizing-ramadan-meal_23-2151182540.jpg?ga=GA1.1.647417534.1741002966&semt=ais_hybrid&w=740" alt="Chicken Biryani">
+          <h4>Chicken Biryani</h4>
+      </div>
+      <div class="submenu-item">
+          <img src="https://img.freepik.com/free-photo/close-up-rice-with-carrots-garnished-with-lamb-pieces-served-with-pickles-yogurt_141793-2051.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Mutton Biryani">
+          <h4>Mutton Biryani</h4>
+      </div>
+      <div class="submenu-item">
+          <img src="https://img.freepik.com/free-psd/baked-fish-with-lemon-rice-delicious-dish_84443-40949.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Fish Biryani">
+          <h4>Fish Biryani</h4>
+      </div>
+      <div class="submenu-item">
+          <img src="https://img.freepik.com/free-photo/grilled-shrimp-salad_181624-959.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="prawns Biryani">
+          <h4>prawns Biryani</h4>
+      </div>
+  
+   </section>
+ </div>
+</body>
+
+</body>
+</html>
