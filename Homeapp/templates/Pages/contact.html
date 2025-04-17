@@ -3,13 +3,12 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Contact Us | MyRestaurant</title>
+  <title>MyRestaurant</title>
   <link rel="stylesheet" href="{% static 'styles.css' %}">
   <script src="{% static 'scripts.js' %}"></script>
 </head>
 <body>
 
-  <!-- Navbar -->
   <div class="navbar">
     <div class="logo">
       <img src="{% static 'logo.jpg' %}" alt="Hanvik Restaurant Logo">
@@ -20,15 +19,16 @@
       <a href="{% url 'about' %}">About</a>
       <a href="{% url 'services' %}">Services</a>
       <a href="{% url 'contact' %}">Contact</a>
+      <a href="{% url 'cart' %}">Cart</a>
+      <a href="{% url 'payment' %}">Payment</a>
+  
     </div>
   </div>
 
-  <!-- Contact Section -->
+ 
   <div class="content">
     <h1>Contact Us</h1>
-    {% if message_sent %}
-      <p style="color: green;"><strong>Thanks {{ name }}! Your message was saved.</strong></p>
-    {% endif %}
+   
     <form method="post">
       {% csrf_token %}
       <label for="name">Name:</label><br>
@@ -42,6 +42,9 @@
 
       <button type="submit">Send Message</button>
     </form>
+    {% if message_sent %}
+      <p style="color: rgb(241, 237, 234);"><strong>Thanks {{ name }}! Your message was saved.</strong></p>
+    {% endif %}
   </div>
 
 </body>

@@ -5,13 +5,11 @@
   <meta charset="UTF-8">
   <title>About Us | MyRestaurant</title>
   <link rel="stylesheet" href="{% static 'styles.css' %}">
-  
   <script src="{% static 'scripts.js' %}"></script>
-
 </head>
 <body>
 
-  <!-- Navbar -->
+
   <div class="navbar">
     <div class="logo">
       <img src="{% static 'logo.jpg' %}" alt="Hanvik Restaurant Logo" >
@@ -22,14 +20,18 @@
       <a href="{% url 'about' %}">About</a>
       <a href="{% url 'services' %}">services</a>
       <a href="{% url 'contact' %}">Contact</a>
+      <a href="{% url 'cart' %}">Cart</a>
+      <a href="{% url 'payment' %}">Payment</a>
+     
     </div>
   </div>
 
-  <!-- About Section -->
-  <div class="content">
-    <h1>About Our Restaurant</h1>
-    <p>Welcome to MyRestaurant! We’ve been serving delicious food since 2005. Our passion is bringing people together through fresh ingredients and unforgettable flavors.</p>
+
+  <div class="contentabout">
+    <h1> About Our Restaurant</h1>
+    <p> We have been serving delicious food since 2005. Our passion is bringing people together through fresh ingredients and unforgettable flavors.</p>
     <p>We pride ourselves on excellent service, warm atmosphere, and a menu that suits every taste.</p>
+    <P> With the excellence of 85 years our original Biryani recipe is from the Grand Hotel at Abids. Our chefs are trained there and they make the city of Hyderabad, that loves it's Biryani happy.</P>
   </div>
 
 </body>

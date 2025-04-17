@@ -5,4 +5,4 @@ from .models import ContactMessage
 admin.site.register(ContactMessage)
 
 
-# Register your models here.
+

@@ -1,0 +1,72 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+   <script src="{% static 'scripts.js' %}"></script>
+  <style>
+    body { font-family: Arial, sans-serif; margin-top: 20px; }
+    .cart-item { border-bottom: 1px solid #a09cb9; padding: 1rem 0; display: flex; justify-content: space-between; align-items: center; }
+    .empty { color: #5c2a30; font-style: italic; }
+    .button { padding: 10px 20px; background: #28a745; color: rgb(95, 34, 174); border: none; border-radius: 5px; text-decoration: none; }
+    .remove-button { background-color: #dc3545; color: white; padding: 6px 10px; border: none; border-radius: 5px; cursor: pointer; }
+    .remove-button:hover { background-color: #c82333; }
+    .total { text-align: right; font-weight: bold; margin-top: 1rem; font-size: larger; color: rgb(24, 20, 26) ; text-decoration: solid;}
+    .pqr{
+      padding: 2rem;
+      margin-top: 80px;
+    }
+    h1{
+      text-decoration: underline;
+      color: rgb(61, 72, 13);
+    }
+    
+  </style>
+</head>
+
+<body>
+
+  <div class="navbar">
+    <div class="logo">
+      <img src="{% static 'logo.jpg' %}" alt="Hanvik Restaurant Logo">
+    </div>
+    <div class="nav-links">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'services' %}">Services</a>
+      <a href="{% url 'contact' %}">Contact</a>
+      <a href="{% url 'cart' %}">Cart</a>
+      <a href="{% url 'payment' %}">Payment</a>
+    </div>
+  </div>
+  <div class="pqr">
+
+    <h1>Your Cart</h1>
+
+  {% if cart %}
+    {% for item in cart %}
+      <div class="cart-item">
+        <div>
+          <h3>{{ item.name }}</h3>
+          <p>Price: ₹{{ item.price }}</p>
+        </div>
+        <form action="{% url 'remove_from_cart' forloop.counter0 %}" method="post">
+          {% csrf_token %}
+          <button class="remove-button" type="submit">Remove</button>
+        </form>
+      </div>
+    {% endfor %}
+
+    <div class="total">
+      Total: ₹{{ total }}
+    </div>
+
+    <a href="{% url 'payment' %}" class="button">Proceed to Payment</a>
+   {% else %}
+    <p class="empty">Your cart is empty.</p>
+   {% endif %}
+  </div>   
+</body>
+</html>

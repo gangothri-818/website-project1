@@ -5,11 +5,18 @@
   <meta charset="UTF-8">
   <title>Home | MyRestaurant</title>
   <link rel="stylesheet" href="{% static 'styles.css' %}">
-  <script src="{% static 'scripts.js' %}"></script>
+ <script src="{% static 'scripts.js' %}"></script>
+  
 </head>
-<body>
+<body> 
+  {% if messages %}
+   <div style="background: #d4edda; color: #155724; padding: 10px; border-radius: 5px; margin: 1rem 0;">
+    {% for message in messages %}
+      <p>{{ message }}</p>
+    {% endfor %}
+   </div>
+  {% endif %}
 
-  <!-- Navbar -->
   <div class="navbar">
     <div class="logo">
       <img src="{% static 'logo.jpg' %}" alt="Hanvik Restaurant Logo">
@@ -20,10 +27,13 @@
       <a href="{% url 'about' %}">About</a>
       <a href="{% url 'services' %}">services</a>
       <a href="{% url 'contact' %}">Contact</a>
+      <a href="{% url 'cart' %}">Cart</a>
+      <a href="{% url 'payment' %}">Payment</a>
+  
     </div>
   </div>
 
-  <!-- Hero Section -->
+
   <div class="abc">
     <section id="menu" class="menu">
       <div class="menu-item" onclick="showMenu('veg-menu')">
@@ -40,18 +50,46 @@
       <div class="submenu-item">
           <img src="https://img.freepik.com/free-psd/palak-paneer-indian-cuisine-green-curry-cheese-spinach-dish-bowl-food_84443-35134.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Paneer Biryani">
           <h4>Paneer Biryani</h4>
+          <form action="{% url 'add_to_cart' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="name" value="Paneer Biryani">
+            <input type="hidden" name="price" value="199">
+            <button type="submit" class="button">Add to Cart</button>
+        </form>
+        
       </div>
       <div class="submenu-item">
           <img src="https://img.freepik.com/premium-photo/kashmiri-pulao-made-basmati-rice-cooked-with-spices-flavored-with-saffron-dry-fruits_466689-1160.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Mushroom Biryani">
           <h4>Mushroom Biryani</h4>
+          <form action="{% url 'add_to_cart' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="name" value="Mushroom Biryani">
+            <input type="hidden" name="price" value="199">
+            <button type="submit" class="button">Add to Cart</button>
+        </form>
+        
       </div>
       <div class="submenu-item">
           <img src="https://img.freepik.com/premium-photo/ai-generative-image-best-traditional-food-asian-country_999340-20287.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Aloo Biryani">
           <h4>Aloo Biryani</h4>
+          <form action="{% url 'add_to_cart' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="name" value="Aloo Biryani">
+            <input type="hidden" name="price" value="199">
+            <button type="submit" class="button">Add to Cart</button>
+        </form>
+        
       </div>
       <div class="submenu-item">
           <img src="https://img.freepik.com/premium-photo/indian-vegetable-pulav-biryani-made-using-basmati-rice-served-terracotta-bowl-selective-focus_466689-55615.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Veg Biryani">
           <h4>Veg Biryani</h4>
+          <form action="{% url 'add_to_cart' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="name" value="Veg Biryani">
+            <input type="hidden" name="price" value="199">
+            <button type="submit" class="button">Add to Cart</button>
+        </form>
+        
       </div>
       
     </section>
@@ -60,18 +98,48 @@
       <div class="submenu-item">
           <img src="https://img.freepik.com/free-photo/close-up-appetizing-ramadan-meal_23-2151182540.jpg?ga=GA1.1.647417534.1741002966&semt=ais_hybrid&w=740" alt="Chicken Biryani">
           <h4>Chicken Biryani</h4>
+          <form action="{% url 'add_to_cart' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="name" value="Chicken Biryani">
+            <input type="hidden" name="price" value="199">
+            <button type="submit" class="button">Add to Cart</button>
+        </form>
+        
       </div>
       <div class="submenu-item">
           <img src="https://img.freepik.com/free-photo/close-up-rice-with-carrots-garnished-with-lamb-pieces-served-with-pickles-yogurt_141793-2051.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Mutton Biryani">
           <h4>Mutton Biryani</h4>
+          <form action="{% url 'add_to_cart' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="name" value="Mutton Biryani">
+            <input type="hidden" name="price" value="199">
+            <button type="submit" class="button">Add to Cart</button>
+        </form>
+        
       </div>
       <div class="submenu-item">
           <img src="https://img.freepik.com/free-psd/baked-fish-with-lemon-rice-delicious-dish_84443-40949.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="Fish Biryani">
           <h4>Fish Biryani</h4>
+          <form action="{% url 'add_to_cart' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="name" value="Fish Biryani">
+            <input type="hidden" name="price" value="199">
+            <button type="submit" class="button">Add to Cart</button>
+        </form>
+        
+        </form>
       </div>
       <div class="submenu-item">
           <img src="https://img.freepik.com/free-photo/grilled-shrimp-salad_181624-959.jpg?ga=GA1.1.1381077370.1726215474&semt=ais_hybrid" alt="prawns Biryani">
           <h4>prawns Biryani</h4>
+          <form action="{% url 'add_to_cart' %}" method="post">
+            {% csrf_token %}
+            <input type="hidden" name="name" value="Prawns Biryani">
+            <input type="hidden" name="price" value="199">
+            <button type="submit" class="button">Add to Cart</button>
+        </form>
+        
+        </form>
       </div>
   
    </section>

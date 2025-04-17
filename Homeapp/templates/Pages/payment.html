@@ -1,0 +1,65 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Payment</title>
+  <link rel="stylesheet" href="{% static 'styles.css' %}">
+ <script src="{% static 'scripts.js' %}"></script>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 2rem; }
+    form { max-width: 400px; margin: auto; }
+    label { display: block; margin-top: 1rem; }
+    input { width: 100%; padding: 8px; margin-top: 0.5rem; }
+    .button { margin-top: 1.5rem; padding: 10px 20px; background: #007bff; color: white; border: none; border-radius: 5px; cursor: pointer; }
+  </style>
+</head>
+<body>
+  
+
+  <div class="navbar">
+    <div class="logo">
+      <img src="{% static 'logo.jpg' %}" alt="Hanvik Restaurant Logo">
+
+    </div>
+    <div class="nav-links">
+      <a href="{% url 'home' %}">Home</a>
+      <a href="{% url 'about' %}">About</a>
+      <a href="{% url 'services' %}">services</a>
+      <a href="{% url 'contact' %}">Contact</a>
+      <a href="{% url 'cart' %}">Cart</a>
+      <a href="{% url 'payment' %}">Payment</a>
+  
+    </div>
+  </div>
+
+<div class="rst">
+  <h1>Payment</h1>
+
+  <form method="post">
+    {% csrf_token %}
+    
+    <label>Card Number:
+      <input type="text" name="card_number" required>
+    </label>
+
+    <label>Name on Card:
+      <input type="text" name="name_on_card" required>
+    </label>
+
+    <label>Expiry Date:
+      <input type="text" name="expiry" required>
+    </label>
+
+    <label>CVV:
+      <input type="text" name="cvv" required>
+    </label>
+
+    <button type="submit" class="button">Pay Now</button>
+  </form>
+  {% if message %}
+  <p class="success">{{ message }}</p>
+  {% endif %}
+</div>
+</body>
+</html>

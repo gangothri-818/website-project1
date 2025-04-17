@@ -1,5 +1,5 @@
 from django.db import models
-# pages/models.py
+
 
 
 
@@ -12,4 +12,4 @@ class ContactMessage(models.Model):
     def __str__(self):
         return f"{self.name} - {self.email}"
 
-# Create your models here.
+
